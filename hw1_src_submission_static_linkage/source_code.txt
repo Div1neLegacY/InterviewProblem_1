@@ -1,0 +1,33 @@
+struct response_api_type {
+    int a;
+    int b;
+};
+
+response_api_type* send_response() {
+    // Allocate on heap so we can return it
+    response_api_type* response;
+    response->a = 2;
+    response->b = 5;
+
+    return response;
+}
+
+int main() {
+    response_api_type* var = send_response();
+    std::cout << "var->a: " << var->a << ", var->b: " << var->b << std::endl;
+
+    return 0;
+}
+
+Issues:
+1. "Allocate on heap" comment, yet there is no manual deallocation of the memory anywhere in the code. Suggest either use "new" or "delete" keywords accordingly, or better yet, use a smart pointer like std::unique_ptr for automatic alloc/dealloc. Include the "#include <memory>" directive
+2. Usage of "std::cout" without "#include <iostream>" directive. Probably not here just because it is "pseudocode", but either way would like to see it.
+3. Security dereference concern: We do expect "var" to be valid at the time of initialization but still dereferencing it before checking it within the "std::cout" feels like a concern. I think the usage of a smart point here can also benefit my concern. Using a smart pointer allows us to dynamically allocate "var" using make_unique, this in theory shouldn't have issues but has the chance to throw an "std::bad_alloc". Instead of doing a manual check on the pointer, we can just "catch" this exception to handle this concern. I wonder what certain C++ standards would say about this line if ran through a static analysis tool? Maybe this would just be a "WARNING"?
+4. Why define the constructor outside of the struct "response_api_type" scope? Just defining a constructor in the struct like below, can benefit by cleaning up the code and allowing us to avoid dereferencing the member variables "a" and "b".
+
+struct response_api_type {
+    int a;
+    int b;
+
+    response_api_type(int a_val, int b_val) : a(a_val), b(b_val) {}
+};
