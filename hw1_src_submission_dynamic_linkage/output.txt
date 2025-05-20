@@ -1,0 +1,144 @@
+march@DESKTOP-0KPNJDN:~/hw1_src/hw1_src$ ./build.sh clean build
++ BUILD_TYPE=Debug
++ BINARY_NAME=hw1_app
++ sudo chown -R march:march .
++ '[' 2 -eq 0 ']'
++ for cmd in "$@"
++ case "$cmd" in
++ clean
++ '[' -d build ']'
++ echo 'Cleaning existing build directory...'
+Cleaning existing build directory...
++ rm -rf build
++ for cmd in "$@"
++ case "$cmd" in
++ build
++ mkdir -p build/tmp
++ mkdir -p build/bin
++ mkdir -p build/lib
++++ dirname ./build.sh
+++ cd ./build/bin
+++ pwd
++ OUTPUT_BIN_DIR=/home/march/hw1_src/hw1_src/build/bin
++ cd build/tmp
++ cmake ../.. -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/march/hw1_src/hw1_src/build/bin -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=
+CMake Warning (dev) at CMakeLists.txt:1 (project):
+  cmake_minimum_required() should be called prior to this top-level project()
+  call.  Please see the cmake-commands(7) manual for usage documentation of
+  both commands.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Deprecation Warning at CMakeLists.txt:3 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Deprecation Warning at CMakeLists.txt:4 (cmake_policy):
+  The OLD behavior for policy CMP0002 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+
+
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/march/hw1_src/hw1_src/build/tmp
++ cmake -DCMAKE_BUILD_TYPE=Debug ../..
+CMake Warning (dev) at CMakeLists.txt:1 (project):
+  cmake_minimum_required() should be called prior to this top-level project()
+  call.  Please see the cmake-commands(7) manual for usage documentation of
+  both commands.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Deprecation Warning at CMakeLists.txt:3 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Deprecation Warning at CMakeLists.txt:4 (cmake_policy):
+  The OLD behavior for policy CMP0002 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+
+
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/march/hw1_src/hw1_src/build/tmp
++ cmake --build . --verbose
+Change Dir: '/home/march/hw1_src/hw1_src/build/tmp'
+
+Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile
+/usr/bin/cmake -S/home/march/hw1_src/hw1_src -B/home/march/hw1_src/hw1_src/build/tmp --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /home/march/hw1_src/hw1_src/build/tmp/CMakeFiles /home/march/hw1_src/hw1_src/build/tmp//CMakeFiles/progress.marks
+/usr/bin/gmake  -f CMakeFiles/Makefile2 all
+gmake[1]: Entering directory '/home/march/hw1_src/hw1_src/build/tmp'
+/usr/bin/gmake  -f src/CMakeFiles/hw1_sorter.dir/build.make src/CMakeFiles/hw1_sorter.dir/depend
+gmake[2]: Entering directory '/home/march/hw1_src/hw1_src/build/tmp'
+cd /home/march/hw1_src/hw1_src/build/tmp && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/march/hw1_src/hw1_src /home/march/hw1_src/hw1_src/src /home/march/hw1_src/hw1_src/build/tmp /home/march/hw1_src/hw1_src/build/tmp/src /home/march/hw1_src/hw1_src/build/tmp/src/CMakeFiles/hw1_sorter.dir/DependInfo.cmake "--color="
+gmake[2]: Leaving directory '/home/march/hw1_src/hw1_src/build/tmp'
+/usr/bin/gmake  -f src/CMakeFiles/hw1_sorter.dir/build.make src/CMakeFiles/hw1_sorter.dir/build
+gmake[2]: Entering directory '/home/march/hw1_src/hw1_src/build/tmp'
+[ 25%] Building CXX object src/CMakeFiles/hw1_sorter.dir/sorter.cpp.o
+cd /home/march/hw1_src/hw1_src/build/tmp/src && /usr/bin/c++ -Dhw1_sorter_EXPORTS -I/home/march/hw1_src/hw1_src/inc -g -fPIC -MD -MT src/CMakeFiles/hw1_sorter.dir/sorter.cpp.o -MF CMakeFiles/hw1_sorter.dir/sorter.cpp.o.d -o CMakeFiles/hw1_sorter.dir/sorter.cpp.o -c /home/march/hw1_src/hw1_src/src/sorter.cpp
+[ 50%] Linking CXX shared library /home/march/hw1_src/hw1_src/libhw1_sorter.so
+cd /home/march/hw1_src/hw1_src/build/tmp/src && /usr/bin/cmake -E cmake_link_script CMakeFiles/hw1_sorter.dir/link.txt --verbose=1
+/usr/bin/c++ -fPIC -g -shared -Wl,-soname,libhw1_sorter.so -o /home/march/hw1_src/hw1_src/libhw1_sorter.so CMakeFiles/hw1_sorter.dir/sorter.cpp.o
+gmake[2]: Leaving directory '/home/march/hw1_src/hw1_src/build/tmp'
+[ 50%] Built target hw1_sorter
+/usr/bin/gmake  -f app/CMakeFiles/hw1_app.dir/build.make app/CMakeFiles/hw1_app.dir/depend
+gmake[2]: Entering directory '/home/march/hw1_src/hw1_src/build/tmp'
+cd /home/march/hw1_src/hw1_src/build/tmp && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/march/hw1_src/hw1_src /home/march/hw1_src/hw1_src/app /home/march/hw1_src/hw1_src/build/tmp /home/march/hw1_src/hw1_src/build/tmp/app /home/march/hw1_src/hw1_src/build/tmp/app/CMakeFiles/hw1_app.dir/DependInfo.cmake "--color="
+gmake[2]: Leaving directory '/home/march/hw1_src/hw1_src/build/tmp'
+/usr/bin/gmake  -f app/CMakeFiles/hw1_app.dir/build.make app/CMakeFiles/hw1_app.dir/build
+gmake[2]: Entering directory '/home/march/hw1_src/hw1_src/build/tmp'
+[ 75%] Building CXX object app/CMakeFiles/hw1_app.dir/hw1.cpp.o
+cd /home/march/hw1_src/hw1_src/build/tmp/app && /usr/bin/c++  -I/home/march/hw1_src/hw1_src/inc -g -MD -MT app/CMakeFiles/hw1_app.dir/hw1.cpp.o -MF CMakeFiles/hw1_app.dir/hw1.cpp.o.d -o CMakeFiles/hw1_app.dir/hw1.cpp.o -c /home/march/hw1_src/hw1_src/app/hw1.cpp
+[100%] Linking CXX executable /home/march/hw1_src/hw1_src/build/bin/hw1_app
+cd /home/march/hw1_src/hw1_src/build/tmp/app && /usr/bin/cmake -E cmake_link_script CMakeFiles/hw1_app.dir/link.txt --verbose=1
+/usr/bin/c++ -g -rdynamic CMakeFiles/hw1_app.dir/hw1.cpp.o -o /home/march/hw1_src/hw1_src/build/bin/hw1_app  -ldl
+gmake[2]: Leaving directory '/home/march/hw1_src/hw1_src/build/tmp'
+[100%] Built target hw1_app
+gmake[1]: Leaving directory '/home/march/hw1_src/hw1_src/build/tmp'
+/usr/bin/cmake -E cmake_progress_start /home/march/hw1_src/hw1_src/build/tmp/CMakeFiles 0
+
++ cd ..
+march@DESKTOP-0KPNJDN:~/hw1_src/hw1_src$ ./build.sh run
++ BUILD_TYPE=Debug
++ BINARY_NAME=hw1_app
++ sudo chown -R march:march .
++ '[' 1 -eq 0 ']'
++ for cmd in "$@"
++ case "$cmd" in
++ run
++ echo 'Running the binary...'
+Running the binary...
++ '[' -f ./build/bin/hw1_app ']'
++ ./build/bin/hw1_app
+123 321 456 654 789 987 111 222 555 444 999 1 7 42
+1 7 42 111 123 222 321 444 456 555 654 789 987 999
+march@DESKTOP-0KPNJDN:~/hw1_src/hw1_src$
